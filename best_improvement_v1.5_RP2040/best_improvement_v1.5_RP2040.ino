@@ -47,14 +47,14 @@ MAX6675 thermocouple(THERMO_CLK, THERMO_CS, THERMO_DO);
 //Miscellaneous
 #define FIRMWARE_VERSION 104 //firmware version (1.04)
 #define DEBOUNCETIME 15 //button debounce time
-#define LCDBRIGHTNESS 60 //default brightness, closer to 0 -> brighter, closer to 100 -> dimmer
-#define LCDBRIGHTNESSDIM 100 //standby brightness
-#define MINTEMP 100 //ºC
+#define LCDBRIGHTNESS 0 //default brightness, closer to 0 -> brighter, closer to 100 -> dimmer
+#define LCDBRIGHTNESSDIM 0 //standby brightness
+#define MINTEMP 50 //ºC
 #define MAXTEMP 550 //ºC
 #define MINBLOW 1 //displayed value (%)
 #define MINDUTYCYCLE 30 //actual minimum PWM duty cycle (in %), I don't recommend to lower this value as it probably would lower the life of the heating element
 #define MAXBLOW 100 //displayed and real value (%)
-#define SHUTDOWNTEMP 85 //below this temp the blower shuts off (ºC)
+#define SHUTDOWNTEMP 50 //below this temp the blower shuts off (ºC)
 #define SETTINGSEXITTIME 8000 //if you are inside settings (blinking screen), it will automatically exit after this time (ms)
 #define WINDOWSIZE 205 //Heater PWM period size (ms)
 #define SERIALTIME 1000 //Serial output time (ms)
@@ -170,7 +170,7 @@ void eepromUpdate() { //(eeprom.put only writes to flash if what's already store
 }
 
 void loadDefaults() {
-  ch1Settings.temp = 200;
+  ch1Settings.temp = 100;
   ch1Settings.blow = 100;
   ch2Settings.temp = 360;
   ch2Settings.blow = 50;
